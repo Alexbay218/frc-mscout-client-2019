@@ -93,7 +93,7 @@ var layoutClass = {
     //Variables
     var tmp = document.getElementById("time");
 	if(tmp != null) {
-		tmp.innerText = "Time: " + this.eventObj.timeDelta.toFixed(2);
+		tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
 		for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
 		  tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
 		  tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
@@ -105,7 +105,7 @@ var layoutClass = {
 		}
 	}
 	//Pass data to qrcode
-	if(this.eventObj.timeDelta >= 3) {
+	if(this.eventObj.timeDelta >= 160) {
 		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
 		this.dataProtocolObj.initFunct();
 		this.dataProtocolObj.displayFunct();

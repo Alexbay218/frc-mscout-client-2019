@@ -1,20 +1,20 @@
 CACHE MANIFEST
-/frc-mscout-client-core/index.html
+/frc-mscout-client-2019/index.html
 
-/frc-mscout-client-core/assets/first.ico
+/frc-mscout-client-2019/assets/first.ico
 
-/frc-mscout-client-core/config/style.css
-/frc-mscout-client-core/config/initStyle.css
-/frc-mscout-client-core/config/qrStyle.css
-/frc-mscout-client-core/config/eventConfig.js
+/frc-mscout-client-2019/config/style.css
+/frc-mscout-client-2019/config/initStyle.css
+/frc-mscout-client-2019/config/qrStyle.css
+/frc-mscout-client-2019/config/eventConfig.js
 
-/frc-mscout-client-core/js-adler32/adler32.js
+/frc-mscout-client-2019/js-adler32/adler32.js
 
-/frc-mscout-client-core/qrcodejs/qrcode.js
+/frc-mscout-client-2019/qrcodejs/qrcode.js
 
-/frc-mscout-client-core/src/qrcodestreamer.js
-/frc-mscout-client-core/src/init.js
-/frc-mscout-client-core/src/dataprotocol.js
-/frc-mscout-client-core/src/events.js
-/frc-mscout-client-core/src/layout.js
-/frc-mscout-client-core/src/main.js
+/frc-mscout-client-2019/src/qrcodestreamer.js
+/frc-mscout-client-2019/src/init.js
+/frc-mscout-client-2019/src/dataprotocol.js
+/frc-mscout-client-2019/src/events.js
+/frc-mscout-client-2019/src/layout.js
+/frc-mscout-client-2019/src/main.js
