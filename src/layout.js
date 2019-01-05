@@ -101,7 +101,13 @@ var layoutClass = {
 		//input
 		for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
 		  tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
-		  tmp.innerText = this.eventObj.eventJson.events[i].eventTitle;
+		  if(tmp != null) {
+			for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
+			  if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
+			    tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+			  }
+			}
+		  }
 		}
 	}
 	//Pass data to qrcode
