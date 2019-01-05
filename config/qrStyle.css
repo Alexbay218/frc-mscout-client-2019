@@ -1,0 +1,21 @@
+#qrdisplay {
+	font-size: 3.6vh;
+	margin: 0px;
+	height: 70%;
+	width: 100%;
+}
+#qrdisplay > img {
+	margin: auto;
+}
+#qrslider {
+	font-size: 3.6vh;
+	margin: 0px;
+	height: 13.34%;
+	width: 100%;
+}
+#qrbutton {
+	font-size: 3.6vh;
+	margin: 0px;
+	height: 16.66%;
+	width: 100%;
+}

@@ -1,0 +1,6 @@
+[submodule "qrcodejs"]
+	path = qrcodejs
+	url = https://github.com/davidshimjs/qrcodejs
+[submodule "js-adler32"]
+	path = js-adler32
+	url = https://github.com/SheetJS/js-adler32
