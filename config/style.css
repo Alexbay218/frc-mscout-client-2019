@@ -14,14 +14,16 @@ div {
   font-family: sans-serif;
 }
 .group {
-  border: 1px solid black;
   white-space: nowrap;
 }
 .input {
   display: inline-flex;
-  border: 1px dotted black;
+  border: 1px solid black;
 }
 .variable {
   display: inline-flex;
-  border: 1px dotted black;
+  border: 1px solid black;
+}
+#log {
+  border: 1px solid black;
 }

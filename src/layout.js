@@ -7,11 +7,11 @@ var layoutClass = {
     this.dispElement = document.getElementById("display");
     this.dispElement.style.width = window.innerWidth;
     this.dispElement.style.height = window.innerHeight;
-	
+
     this.eventObj = events;
 	this.dataProtocolObj = Object.assign({}, dataProtocolClass);
 	this.initLayoutObj = Object.assign({}, initLayoutClass);
-	
+
 	this.initLayoutObj.contFunct = () => {
 		this.layoutFunct();
 		this.eventObj.assignEventListeners();
@@ -22,11 +22,10 @@ var layoutClass = {
 			this.dataProtocolObj.displayFunct();
 		}
 	};
-	
 	this.dataProtocolObj.backFunct = () => {
 		this.resetFunct();
 	}
-	
+
 	this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
@@ -35,8 +34,8 @@ var layoutClass = {
 	this.initLayoutObj.initFunct();
   },
   layoutFunct: function() {
-	this.dispElement.innerHTML = "";
-    var groupSum =  this.eventObj.eventJson.variableHeightWeight;
+	  this.dispElement.innerHTML = "";
+    var groupSum = this.eventObj.eventJson.variableHeightWeight + this.eventObj.eventJson.logHeightWeight;
     //Variables
     this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"variables\"></div>");
     var tmp = document.getElementById("variables");
@@ -63,10 +62,16 @@ var layoutClass = {
         groupSum += this.eventObj.eventJson.layouts[i].heightWeight;
       }
     }
+    //Logging
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"log\"></div>");
+    var tmp = document.getElementById("log");
     //Input
     tmp = document.getElementById("variables");
     tmp.style.width = "100%";
     tmp.style.height = ((this.eventObj.eventJson.variableHeightWeight/groupSum)*100).toString() + "%";
+    tmp = document.getElementById("log");
+    tmp.style.width = "100%";
+    tmp.style.height = ((this.eventObj.eventJson.logHeightWeight/groupSum)*100).toString() + "%";
     for(var i = 0;i < this.eventObj.eventJson.layouts.length;i++) {
       tmp = document.getElementById(this.eventObj.eventJson.layouts[i].groupName);
       tmp.style.width = "100%";
@@ -92,30 +97,38 @@ var layoutClass = {
     }
     //Variables
     var tmp = document.getElementById("time");
-	if(tmp != null) {
-		tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
-		for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
-		  tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
-		  tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
-		}
-		//input
-		for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
-		  tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
-		  if(tmp != null) {
-			for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
-			  if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
-			    tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
-			  }
-			}
-		  }
-		}
-	}
-	//Pass data to qrcode
-	if(this.eventObj.timeDelta >= 160) {
-		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
-		this.dataProtocolObj.initFunct();
-		this.dataProtocolObj.displayFunct();
-		this.eventObj.resetTimeFunct();
-	}
+  	if(tmp != null) {
+  		tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
+  		for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
+  		  tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
+  		  tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
+  		}
+  		//input
+  		for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
+  		  tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
+  		  if(tmp != null) {
+  			for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
+  			  if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
+  			    tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+  			  }
+  			}
+  		  }
+  		}
+  	}
+    //Logging
+    var tmp = document.getElementById("log");
+    if(tmp != null) {
+      tmp.innerText = "";
+      for(var i = this.eventObj.eventLog.length - 1;i >= 0;i--) {
+        tmp.innerText += this.eventObj.eventLog[i].time.toFixed(2) + ": " + this.eventObj.eventLog[i].eventTitle + "\n";
+      }
+    }
+  	//Pass data to qrcode
+  	if(this.eventObj.timeDelta >= 160) {
+  		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
+  		this.dataProtocolObj.initFunct();
+  		this.dataProtocolObj.displayFunct();
+  		this.eventObj.resetTimeFunct();
+  	}
   }
 }

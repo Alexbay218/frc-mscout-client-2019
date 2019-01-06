@@ -13,8 +13,8 @@ var eventsClass = {
     }
   },
   startTimeFunct: function() {
-	this.initEventVars = this.eventVars;
-	this.eventLog = [];
+	  this.initEventVars = this.eventVars;
+	  this.eventLog = [];
     this.timeStart = Date.now();
     this.isGoing = true;
   },
@@ -29,31 +29,30 @@ var eventsClass = {
     this.eventLog = [];
   },
   triggerEventFunct: function(eventName) {
-    var delta = 0;
+    var count = 0;
     var key = "";
-	var hasPushed = false;
-	var hasLink = false;
+    var title = "";
+	  var shouldLog = false;
     for(var i = 0;i < this.eventJson.events.length;i++) {
       if(this.eventJson.events[i].eventName == eventName) {
-		for(var j = 0;j < this.eventJson.events[i].variableLink.length;j++) {
-          if(this.eventJson.events[i].variableLink[j].var == variableName) {
-			key = this.eventJson.events[i].eventKey;
-            delta = this.eventJson.events[i].variableLink[j].amt;
-			
+        shouldLog = (this.eventJson.events[i].variableLink.length == 0);
+        key = this.eventJson.events[i].eventKey;
+        title = this.eventJson.events[i].eventTitle;
+        for(var j = 0;j < this.eventJson.events[i].variableLink.length;j++) {
+          for(var k = 0;k < this.eventVars.length;k++) {
+            if(this.eventJson.events[i].variableLink[j].var == this.eventVars[k].variableName) {
+              count = this.eventVars[k].variableAmount + this.eventJson.events[i].variableLink[j].amt;
+              if((count >= this.eventVars[k].variableLimit[0]) && (count <= this.eventVars[k].variableLimit[1])) {
+                this.eventVars[k].variableAmount = count;
+                shouldLog = true;
+              }
+            }
           }
         }
       }
     }
-    for(var k = 0;k < this.eventVars.length;k++) {
-      if(this.eventVars[i].variableName == variableName) {
-        var count = this.eventVars[i].variableAmount + delta;
-        if((count >= this.eventVars[i].variableLimit[0]) && (count <= this.eventVars[i].variableLimit[1]) && key != "") {
-          this.eventVars[i].variableAmount = count;
-		  this.eventLog.push({time: this.timeDelta, eventKey: key});
-		  console.log({varname: variableName, time: this.timeDelta, eventKey: key});
-		  hasPushed = true;
-        }
-      }
+    if(shouldLog && this.isGoing) {
+      this.eventLog.push({time: this.timeDelta, eventKey: key, eventTitle: title});
     }
   },
   assignEventListeners: function() {
@@ -69,8 +68,7 @@ var eventsClass = {
     for(var i = 0;i < this.eventJson.layouts.length;i++) {
       tmp = document.getElementById(this.eventJson.layouts[i].eventName);
       tmp.onmouseup = (e) => {
-		  this.triggerEventFunct(e.srcElement.id);
-        }
+        this.triggerEventFunct(e.srcElement.id);
       };
     }
   }
