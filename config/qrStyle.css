@@ -17,5 +17,11 @@
 	font-size: 3.6vh;
 	margin: 0px;
 	height: 16.66%;
-	width: 100%;
+	width: 60%;
+}
+#sqrbutton {
+	font-size: 3.6vh;
+	margin: 0px;
+	height: 16.66%;
+	width: 40%;
 }

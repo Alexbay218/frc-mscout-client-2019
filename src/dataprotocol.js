@@ -3,10 +3,11 @@ var dataProtocolClass = {
 	qrObj: {},
 	dispElement: {},
 	eventVars: [],
-	eventLogs: [],
+	eventLog: [],
 	metadata: {},
 	processedString: "",
 	isShowing: false,
+	singleQR: false,
 	hasDisplayed: false,
 	timeInt: 250,
 	initFunct: function() {
@@ -35,6 +36,19 @@ var dataProtocolClass = {
 		backButton.onmouseup = () => {
 			this.backFunct();
 		}
+		this.dispElement.insertAdjacentHTML("beforeend", "<button id=\"sqrbutton\">Single QR</button>");
+		var sqrButton = document.getElementById("sqrbutton");
+		sqrButton.onmouseup = () => {
+			if(this.singleQR) {
+				this.singleQR = false;
+				this.displayFunct();
+			}
+			else {
+				this.singleQR = true;
+		    this.qrObj._htOption.colorDark = "#000000"
+				this.qrObj.makeCode(this.processedString);
+			}
+		}
 		this.processFunct();
 	},
 	inputFunct: function(inMetadata, inEventVars, inEventLog) {
@@ -54,10 +68,15 @@ var dataProtocolClass = {
 		for(var i = 0;i < this.eventLog.length;i++) {
 			this.processedString += this.eventLog[i].eventKey + "," + this.eventLog[i].time + ";";
 		}
+		if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+			this.processedString = window.localStorage.savedString;
+		}
+		window.localStorage.setItem("savedString", this.processedString);
+		this.copyFunct(this.processedString);
 		this.qrcsObj.inputData(this.processedString);
 	},
 	displayFunct: function() {
-		if(this.isShowing) {
+		if(this.isShowing && !this.singleQR) {
 			this.qrcsObj.nextCode();
 			this.timeInt = Number.parseInt(document.getElementById("qrslider").value);
 			window.setTimeout(() => {
@@ -67,5 +86,16 @@ var dataProtocolClass = {
 			}, this.timeInt);
 		}
 	},
-	backFunct: function() {}
+	backFunct: function() {},
+	copyFunct: function(str) {
+	  var el = document.createElement('textarea');
+	  el.value = str;
+	  el.setAttribute('readonly', '');
+	  el.style.position = 'absolute';
+	  el.style.left = '-9999px';
+	  document.body.appendChild(el);
+	  el.select();
+	  document.execCommand('copy');
+	  document.body.removeChild(el);
+	}
 }

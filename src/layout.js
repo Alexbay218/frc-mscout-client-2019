@@ -9,24 +9,24 @@ var layoutClass = {
     this.dispElement.style.height = window.innerHeight;
 
     this.eventObj = events;
-	this.dataProtocolObj = Object.assign({}, dataProtocolClass);
-	this.initLayoutObj = Object.assign({}, initLayoutClass);
+  	this.dataProtocolObj = Object.assign({}, dataProtocolClass);
+  	this.initLayoutObj = Object.assign({}, initLayoutClass);
 
-	this.initLayoutObj.contFunct = () => {
-		this.layoutFunct();
-		this.eventObj.assignEventListeners();
-	};
-	this.initLayoutObj.backFunct = () => {
-		if(this.dataProtocolObj.hasDisplayed) {
-			this.dataProtocolObj.initFunct();
-			this.dataProtocolObj.displayFunct();
-		}
-	};
-	this.dataProtocolObj.backFunct = () => {
-		this.resetFunct();
-	}
+  	this.initLayoutObj.contFunct = () => {
+  		this.layoutFunct();
+  		this.eventObj.assignEventListeners();
+  	};
+  	this.initLayoutObj.backFunct = () => {
+  		if(this.dataProtocolObj.hasDisplayed || (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+  			this.dataProtocolObj.initFunct();
+  			this.dataProtocolObj.displayFunct();
+  		}
+  	};
+  	this.dataProtocolObj.backFunct = () => {
+  		this.resetFunct();
+  	}
 
-	this.initLayoutObj.initFunct();
+  	this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
 	this.dataProtocolObj.isShowing = false;
@@ -124,7 +124,7 @@ var layoutClass = {
       }
     }
   	//Pass data to qrcode
-  	if(this.eventObj.timeDelta >= 160) {
+  	if(this.eventObj.timeDelta >= 3) {
   		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
   		this.dataProtocolObj.initFunct();
   		this.dataProtocolObj.displayFunct();

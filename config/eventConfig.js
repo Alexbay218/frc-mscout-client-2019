@@ -108,6 +108,18 @@ var eventConfig =
   	  eventTitle:"Failed Hab Climb",
   	  eventKey:"r",
   	  variableLink:[]
+  	},
+  	{
+  	  eventName:"defend",
+  	  eventTitle:"Played Defense",
+  	  eventKey:"s",
+  	  variableLink:[]
+  	},
+  	{
+  	  eventName:"crossField",
+  	  eventTitle:"Crossed Field",
+  	  eventKey:"t",
+  	  variableLink:[]
   	}
   ],
   layouts: [
@@ -236,7 +248,22 @@ var eventConfig =
       groupName:"habclimb",
       heightWeight:1,
       widthWeight:0.267
+    },
+    {
+      eventName:"crossField",
+      buttonName:"Cross Field",
+      groupName:"defense",
+      heightWeight:1,
+      widthWeight:0.5
+    },
+    {
+      eventName:"defend",
+      buttonName:"Played Defense",
+      groupName:"defense",
+      heightWeight:1,
+      widthWeight:0.5
     }
+
   ],
   variables: [
     {
