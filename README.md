@@ -6,7 +6,7 @@ FRC Match Scouting System, Core Client Framework for mobile to laptop data trans
 
 Laptop System Repository: https://github.com/Alexbay218/frc-mscout-core/
 
-## (Simple Tutorial):
+## Simple Tutorial:
 
 You need a laptop running Windows with a webcam and a device that can access the web (phone preferred).
 
