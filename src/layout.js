@@ -124,7 +124,7 @@ var layoutClass = {
       }
     }
   	//Pass data to qrcode
-  	if(this.eventObj.timeDelta >= 3) {
+  	if(this.eventObj.timeDelta >= 160) {
   		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
   		this.dataProtocolObj.initFunct();
   		this.dataProtocolObj.displayFunct();
