@@ -13,8 +13,8 @@ var eventsClass = {
     }
   },
   startTimeFunct: function() {
-	  this.initEventVars = this.eventVars;
-	  this.eventLog = [];
+    this.initEventVars = this.eventVars;
+    this.eventLog = [];
     this.timeStart = Date.now();
     this.isGoing = true;
   },
@@ -32,7 +32,7 @@ var eventsClass = {
     var count = 0;
     var key = "";
     var title = "";
-	  var shouldLog = false;
+    var shouldLog = false;
     for(var i = 0;i < this.eventJson.events.length;i++) {
       if(this.eventJson.events[i].eventName == eventName) {
         shouldLog = (this.eventJson.events[i].variableLink.length == 0);

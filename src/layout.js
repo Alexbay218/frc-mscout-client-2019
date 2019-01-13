@@ -9,35 +9,35 @@ var layoutClass = {
     this.dispElement.style.height = window.innerHeight;
 
     this.eventObj = events;
-  	this.dataProtocolObj = Object.assign({}, dataProtocolClass);
-  	this.initLayoutObj = Object.assign({}, initLayoutClass);
+    this.dataProtocolObj = Object.assign({}, dataProtocolClass);
+    this.initLayoutObj = Object.assign({}, initLayoutClass);
 
-  	this.initLayoutObj.contFunct = () => {
-  		this.layoutFunct();
-  		this.eventObj.assignEventListeners();
-  	};
-  	this.initLayoutObj.backFunct = () => {
-  		if(this.dataProtocolObj.hasDisplayed || (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
-  			this.dataProtocolObj.initFunct();
-  			this.dataProtocolObj.displayFunct();
-  		}
-  	};
-  	this.dataProtocolObj.backFunct = () => {
-  		this.resetFunct();
-  	}
+    this.initLayoutObj.contFunct = () => {
+      this.layoutFunct();
+      this.eventObj.assignEventListeners();
+    };
+    this.initLayoutObj.backFunct = () => {
+      if(this.dataProtocolObj.hasDisplayed || (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+        this.dataProtocolObj.initFunct();
+        this.dataProtocolObj.displayFunct();
+      }
+    };
+    this.dataProtocolObj.backFunct = () => {
+      this.resetFunct();
+    }
 
-  	this.initLayoutObj.initFunct();
+    this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
-	this.dataProtocolObj.isShowing = false;
-	this.eventObj.resetTimeFunct();
-	this.initLayoutObj.initFunct();
+  this.dataProtocolObj.isShowing = false;
+  this.eventObj.resetTimeFunct();
+  this.initLayoutObj.initFunct();
   },
   layoutFunct: function() {
-	  this.dispElement.innerHTML = "";
+    this.dispElement.innerHTML = "";
     var groupSum = this.eventObj.eventJson.variableHeightWeight + this.eventObj.eventJson.logHeightWeight;
     //Variables
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"variables\"></div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group mui-btn mui-btn--primary\" id=\"variables\"></div>");
     var tmp = document.getElementById("variables");
     tmp.insertAdjacentHTML("beforeend","<div class=\"variable\" id=\"time\"></div>");
     var tmp2 = document.getElementById("time");
@@ -76,7 +76,7 @@ var layoutClass = {
       tmp = document.getElementById(this.eventObj.eventJson.layouts[i].groupName);
       tmp.style.width = "100%";
       tmp.style.height = ((this.eventObj.eventJson.layouts[i].heightWeight/groupSum)*100).toString() + "%";
-      tmp.insertAdjacentHTML("beforeend", "<div class=\"input\" id=\"" + this.eventObj.eventJson.layouts[i].eventName + "\"></div>");
+      tmp.insertAdjacentHTML("beforeend", "<div class=\"input mui-btn mui-btn--flat\" id=\"" + this.eventObj.eventJson.layouts[i].eventName + "\"></div>");
     }
     for(var i = 0;i < this.eventObj.eventJson.layouts.length;i++) {
       groupSum = 0;
@@ -97,24 +97,24 @@ var layoutClass = {
     }
     //Variables
     var tmp = document.getElementById("time");
-  	if(tmp != null) {
-  		tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
-  		for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
-  		  tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
-  		  tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
-  		}
-  		//input
-  		for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
-  		  tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
-  		  if(tmp != null) {
-  			for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
-  			  if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
-  			    tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
-  			  }
-  			}
-  		  }
-  		}
-  	}
+    if(tmp != null) {
+      tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
+      for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
+        tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
+        tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
+      }
+      //input
+      for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
+        tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
+        if(tmp != null) {
+        for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
+          if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
+            tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+          }
+        }
+        }
+      }
+    }
     //Logging
     var tmp = document.getElementById("log");
     if(tmp != null) {
@@ -123,12 +123,12 @@ var layoutClass = {
         tmp.innerText += this.eventObj.eventLog[i].time.toFixed(2) + ": " + this.eventObj.eventLog[i].eventTitle + "\n";
       }
     }
-  	//Pass data to qrcode
-  	if(this.eventObj.timeDelta >= 160) {
-  		this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
-  		this.dataProtocolObj.initFunct();
-  		this.dataProtocolObj.displayFunct();
-  		this.eventObj.resetTimeFunct();
-  	}
+    //Pass data to qrcode
+    if(this.eventObj.timeDelta >= 160) {
+      this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
+      this.dataProtocolObj.initFunct();
+      this.dataProtocolObj.displayFunct();
+      this.eventObj.resetTimeFunct();
+    }
   }
 }

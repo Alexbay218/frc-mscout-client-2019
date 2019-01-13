@@ -7,5 +7,5 @@ lyt.initFunct(evt);
 window.setInterval(() => {
     dispElement.style.width = window.innerWidth;
     dispElement.style.height = window.innerHeight;
-	lyt.updateFunct();
+  lyt.updateFunct();
 },10)

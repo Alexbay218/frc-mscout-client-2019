@@ -1,27 +1,50 @@
 #qrdisplay {
-	font-size: 3.6vh;
-	margin: 0px;
-	height: 70%;
-	width: 100%;
+  font-size: 3.6vh;
+  margin: 0px;
+  height: 70%;
+  width: 100%;
 }
 #qrdisplay > img {
-	margin: auto;
+  margin: auto;
 }
 #qrslider {
-	font-size: 3.6vh;
-	margin: 0px;
-	height: 13.34%;
-	width: 100%;
+  font-size: 3.6vh;
+  margin: 0px;
+  height: 13.34%;
+  width: 100%;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  background: #ededed;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
 }
 #qrbutton {
-	font-size: 3.6vh;
-	margin: 0px;
-	height: 16.66%;
-	width: 60%;
+  font-size: 7vw;
+  margin: 0px;
+  height: 16.66%;
+  width: 60%;
 }
 #sqrbutton {
-	font-size: 3.6vh;
-	margin: 0px;
-	height: 16.66%;
-	width: 40%;
+  font-size: 5.5vw;
+  margin: 0px;
+  padding: 0px;
+  height: 16.66%;
+  width: 40%;
+}
+
+#qrslider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10vw;
+  height: 13.34vh;
+  background: #99d2ff;
+  cursor: pointer;
+}
+
+#qrslider::-moz-range-thumb {
+  border-radius: 50%;
+  background: #99d2ff;
+  cursor: pointer;
 }
