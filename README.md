@@ -11,7 +11,7 @@ Laptop System Repository: https://github.com/Alexbay218/frc-mscout-core/
 You need a laptop running Windows with a webcam and a device that can access the web (phone preferred).
 
 
-Download the laptop program on https://github.com/Alexbay218/frc-mscout-core/releases/tag/1.0.1
+Download the laptop program on https://github.com/Alexbay218/frc-mscout-core/releases/tag/v1.0.2
 
 
 Navigate to the website on the other device (https://alexbay218.github.io/frc-mscout-client-2019/)
