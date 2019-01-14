@@ -31,12 +31,12 @@ var dataProtocolClass = {
     this.dispElement.insertAdjacentHTML("beforeend", "<input type=\"range\" min=\"100\" max=\"1000\" value=\"500\" id=\"qrslider\">");
     var slider = document.getElementById("qrslider");
     slider.value = this.timeInt;
-    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"mui-btn\" id=\"qrbutton\">Back</button>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"btn btn-info\" id=\"qrbutton\">" + chosenTranslationObj.Form[11] + "</button>");
     var backButton = document.getElementById("qrbutton");
     backButton.onmouseup = () => {
       this.backFunct();
     }
-    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"mui-btn mui-btn--primary\" id=\"sqrbutton\">Single QR</button>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"btn btn-primary\" id=\"sqrbutton\">" + chosenTranslationObj.Form[12] + "</button>");
     var sqrButton = document.getElementById("sqrbutton");
     sqrButton.onmouseup = () => {
       if(this.singleQR) {

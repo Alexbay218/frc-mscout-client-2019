@@ -11,23 +11,36 @@ var initLayoutClass = {
     };
     this.dispElement = document.getElementById("display");
     this.dispElement.innerHTML = "";
-    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form mui-textfield\" id=\"sourceTeamNumber\" placeholder=\"Your Team Number\" required>");
-    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form mui-textfield\" id=\"targetTeamNumber\" placeholder=\"Robot Team Number\" required>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form form-control\" type=\"number\" id=\"sourceTeamNumber\" placeholder=\"" + chosenTranslationObj.Form[0] + "\">");
     this.dispElement.insertAdjacentHTML("beforeend",
-      "<select class=\"form mui-select\" id=\"matchType\">" +
-        "<option value=\"T\">Test</option>" +
-        "<option value=\"PF\">Practice Field</option>" +
-        "<option value=\"PM\">Practice Match</option>" +
-        "<option value=\"Q\">Qualification</option>" +
-        "<option value=\"QF\">Quarterfinal</option>" +
-        "<option value=\"SF\">Semifinal</option>" +
-        "<option value=\"F\">Final</option>" +
+      "<select class=\"form form-control\" id=\"langSelect\">" +
+        "<option value=\"EN\">EN</option>" +
+        "<option value=\"ES\">ES</option>" +
       "</select>"
     );
-    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form mui-textfield\" id=\"matchNumber\" placeholder=\"Match Number\" required>");
-    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"form mui-btn mui-btn--primary\" id=\"startButton\">Start</button>");
-    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"form mui-btn\" id=\"backButton\">Back</button>");
-
+    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form form-control\" type=\"number\" id=\"targetTeamNumber\" placeholder=\"" + chosenTranslationObj.Form[1] + "\">");
+    this.dispElement.insertAdjacentHTML("beforeend",
+      "<select class=\"form form-control\" id=\"matchType\">" +
+        "<option value=\"T\">" + chosenTranslationObj.Form[2] + "</option>" +
+        "<option value=\"PF\">" + chosenTranslationObj.Form[3] + "</option>" +
+        "<option value=\"PM\">" + chosenTranslationObj.Form[4] + "</option>" +
+        "<option value=\"Q\">" + chosenTranslationObj.Form[5] + "</option>" +
+        "<option value=\"QF\">" + chosenTranslationObj.Form[6] + "</option>" +
+        "<option value=\"SF\">" + chosenTranslationObj.Form[7] + "</option>" +
+        "<option value=\"F\">" + chosenTranslationObj.Form[8] + "</option>" +
+      "</select>"
+    );
+    this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form form-control\" type=\"number\" id=\"matchNumber\" placeholder=\"" + chosenTranslationObj.Form[9] + "\">");
+    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"form btn btn-primary\" id=\"startButton\">" + chosenTranslationObj.Form[10] + "</button>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<button class=\"form btn btn-info\" id=\"backButton\">" + chosenTranslationObj.Form[11] + "</button>");
+    var langSelect = document.getElementById("langSelect");
+    if(localStorage.lang != null) {
+      langSelect.value = localStorage.lang;
+    }
+    langSelect.onchange = () => {
+      localStorage.setItem("lang", langSelect.value);
+      location.reload();
+    };
     var startButton = document.getElementById("startButton");
     startButton.onmouseup = () => {
       this.assignFunct();

@@ -37,7 +37,7 @@ var layoutClass = {
     this.dispElement.innerHTML = "";
     var groupSum = this.eventObj.eventJson.variableHeightWeight + this.eventObj.eventJson.logHeightWeight;
     //Variables
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group mui-btn mui-btn--primary\" id=\"variables\"></div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group btn btn-primary\" id=\"variables\"></div>");
     var tmp = document.getElementById("variables");
     tmp.insertAdjacentHTML("beforeend","<div class=\"variable\" id=\"time\"></div>");
     var tmp2 = document.getElementById("time");
@@ -76,7 +76,7 @@ var layoutClass = {
       tmp = document.getElementById(this.eventObj.eventJson.layouts[i].groupName);
       tmp.style.width = "100%";
       tmp.style.height = ((this.eventObj.eventJson.layouts[i].heightWeight/groupSum)*100).toString() + "%";
-      tmp.insertAdjacentHTML("beforeend", "<div class=\"input mui-btn mui-btn--flat\" id=\"" + this.eventObj.eventJson.layouts[i].eventName + "\"></div>");
+      tmp.insertAdjacentHTML("beforeend", "<div class=\"input btn btn-info\" id=\"" + this.eventObj.eventJson.layouts[i].eventName + "\"></div>");
     }
     for(var i = 0;i < this.eventObj.eventJson.layouts.length;i++) {
       groupSum = 0;

@@ -1,0 +1,90 @@
+.group {
+  background-color: #a0d5f7;
+}
+#variables {
+  background-color: #007bff;
+  border-color: #043e7c;
+}
+#habline1 {
+  background-color: #61b2e6;
+  border-color: #437da2;
+}
+#habline2 {
+  background-color: #53a7dc;
+  border-color: #387196;
+}
+#cargoUp {
+  background-color: #28a745;
+  border-color: #1d7330;
+}
+#hatchUp {
+  background-color: #238c3b;
+  border-color: #175625;
+}
+#cargoDrop {
+  background-color: #df3434;
+  border-color: #b12a2a;
+}
+#hatchDrop {
+  background-color: #c62f2f;
+  border-color: #b12a2a;
+}
+#shipSuccess {
+  background-color: #61b2e6;
+  border-color: #437da2;
+}
+#shipFail {
+  background-color: #df3434;
+  border-color: #b12a2a;
+}
+#rocket1Success {
+  background-color: #53a7dc;
+  border-color: #387196;
+}
+#rocket1Fail {
+  background-color: #d43939;
+  border-color: #b12a2a;
+}
+#rocket2Success {
+  background-color: #4f98c6;
+  border-color: #30607f;
+}
+#rocket2Fail {
+  background-color: #c62f2f;
+  border-color: #902525;
+}
+#rocket3Success {
+  background-color: #3d7aa1;
+  border-color: #1b3546;
+}
+#rocket3Fail {
+  background-color: #ad2b2b;
+  border-color: #4e1414;
+}
+#habClimb1 {
+  background-color: #28a745;
+  border-color: #1d7330;
+}
+#habClimb2 {
+  background-color: #24933e;
+  border-color: #1d7330;
+}
+#habClimb3 {
+  background-color: #1e7431;
+  border-color: #10421b;
+}
+#habClimbFail {
+  background-color: #c62f2f;
+  border-color: #902525;
+}
+#crossField {
+  background-color: #b8aa30;
+  border-color: #827822;
+}
+#defend {
+  background-color: #b89730;
+  border-color: #997d26;
+}
+#log {
+  background-color: #ffffff;
+}
