@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Date Updated: 1/14/19 15:18
+# Date Updated: 1/14/19 17:35
 /frc-mscout-client-2019/index.html
 
 /frc-mscout-client-2019/assets/first.ico
@@ -8,6 +8,7 @@ CACHE MANIFEST
 /frc-mscout-client-2019/config/buttonStyle.css
 /frc-mscout-client-2019/config/initStyle.css
 /frc-mscout-client-2019/config/qrStyle.css
+/frc-mscout-client-2019/config/publicTexts.js
 /frc-mscout-client-2019/config/eventConfig.js
 
 /frc-mscout-client-2019/js-adler32/adler32.js
