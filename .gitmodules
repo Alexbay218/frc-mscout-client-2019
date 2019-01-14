@@ -4,7 +4,4 @@
 [submodule "js-adler32"]
 	path = js-adler32
 	url = https://github.com/SheetJS/js-adler32
-[submodule "bootstrap"]
-	path = bootstrap
-	url = https://github.com/twbs/bootstrap
 
