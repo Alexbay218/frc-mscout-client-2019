@@ -41,10 +41,11 @@ div {
   border-right-style: none;
   margin: 0px;
 }
-.btn-info {
+#backButton {
   background-color: #5ca9fb;
   border-color: #086edb;
 }
-.btn-primary {
+#startButton {
+  background-color: #007bff;
   border-color: #065ebd;
 }

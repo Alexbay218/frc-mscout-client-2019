@@ -25,6 +25,8 @@
   margin: 0px;
   height: 16.66%;
   width: 60%;
+  background-color: #5ca9fb;
+  border-color: #086edb;
 }
 #sqrbutton {
   font-size: 5.5vw;
@@ -32,6 +34,8 @@
   padding: 0px;
   height: 16.66%;
   width: 40%;
+  background-color: #007bff;
+  border-color: #065ebd;
 }
 
 #qrslider::-webkit-slider-thumb {
