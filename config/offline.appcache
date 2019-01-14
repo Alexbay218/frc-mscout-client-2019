@@ -16,8 +16,8 @@ CACHE MANIFEST
 
 /frc-mscout-client-2019/jquery/jquery-3.3.1.min.js
 
-/frc-mscout-client-2019/bootstrap/dist/css/bootstrap.min.css
-/frc-mscout-client-2019/bootstrap/dist/js/bootstrap.min.js
+/frc-mscout-client-2019/bootstrap/bootstrap.min.css
+/frc-mscout-client-2019/bootstrap/bootstrap.min.js
 
 /frc-mscout-client-2019/src/qrcodestreamer.js
 /frc-mscout-client-2019/src/init.js
