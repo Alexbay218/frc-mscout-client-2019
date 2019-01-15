@@ -4,11 +4,12 @@ var layoutClass = {
   initLayoutObj: {},
   dataProtocolObj: {},
   initFunct: function(events) {
+    this.eventObj = events;
+
     this.dispElement = document.getElementById("display");
     this.dispElement.style.width = window.innerWidth;
     this.dispElement.style.height = window.innerHeight;
 
-    this.eventObj = events;
     this.dataProtocolObj = Object.assign({}, dataProtocolClass);
     this.initLayoutObj = Object.assign({}, initLayoutClass);
 
@@ -29,9 +30,9 @@ var layoutClass = {
     this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
-  this.dataProtocolObj.isShowing = false;
-  this.eventObj.resetTimeFunct();
-  this.initLayoutObj.initFunct();
+    this.dataProtocolObj.isShowing = false;
+    this.eventObj.resetTimeFunct();
+    this.initLayoutObj.initFunct();
   },
   layoutFunct: function() {
     this.dispElement.innerHTML = "";
@@ -107,11 +108,11 @@ var layoutClass = {
       for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
         tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
         if(tmp != null) {
-        for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
-          if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
-            tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+          for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
+            if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
+              tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+            }
           }
-        }
         }
       }
     }
@@ -130,5 +131,8 @@ var layoutClass = {
       this.dataProtocolObj.displayFunct();
       this.eventObj.resetTimeFunct();
     }
+    window.setTimeout(() => {
+      this.updateFunct();
+    },100);
   }
 }

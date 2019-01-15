@@ -4,8 +4,7 @@ var dispElement = document.getElementById("display");
 evt.initFunct(JSON.stringify(eventConfig));
 lyt.initFunct(evt);
 
-window.setInterval(() => {
-    dispElement.style.width = window.innerWidth;
-    dispElement.style.height = window.innerHeight;
-  lyt.updateFunct();
-},10)
+window.addEventListener("resize", () => {
+  dispElement.style.width = window.innerWidth;
+  dispElement.style.height = window.innerHeight;
+});

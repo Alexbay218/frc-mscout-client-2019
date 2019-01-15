@@ -33,6 +33,9 @@ var eventsClass = {
     var key = "";
     var title = "";
     var shouldLog = false;
+    if(this.isGoing) {
+      this.updateTimeFunct();
+    }
     for(var i = 0;i < this.eventJson.events.length;i++) {
       if(this.eventJson.events[i].eventName == eventName) {
         shouldLog = (this.eventJson.events[i].variableLink.length == 0);
