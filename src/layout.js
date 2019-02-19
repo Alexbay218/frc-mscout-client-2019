@@ -64,15 +64,27 @@ var layoutClass = {
       }
     }
     //Logging
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"log\"></div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"bottom\"><div class=\"input btn\" id=\"log\"></div><div class=\"input btn btn-primary\" id=\"undo\">" + "Undo" + "</div></div>");
+    var tmp = document.getElementById("bottom");
+    tmp.style.height = ((this.eventObj.eventJson.logHeightWeight/groupSum)*100).toString() + "%";
     var tmp = document.getElementById("log");
+    tmp.style.width = "80%";
+    tmp.style.height = "100%";
+    tmp.style.color = "#000000";
+    tmp.style["text-align"] = "left";
+    tmp.style["justify-content"] = "left";
+    tmp.style["align-items"] = "normal";
+    tmp.style.overflow = "auto";
+    //Undo
+    tmp = document.getElementById("undo");
+    tmp.style.width = "20%";
+    tmp.style.height = "100%";
+    tmp.onmouseup = () => {this.eventObj.undoFunct();}
+    var tmp =
     //Input
     tmp = document.getElementById("variables");
     tmp.style.width = "100%";
     tmp.style.height = ((this.eventObj.eventJson.variableHeightWeight/groupSum)*100).toString() + "%";
-    tmp = document.getElementById("log");
-    tmp.style.width = "100%";
-    tmp.style.height = ((this.eventObj.eventJson.logHeightWeight/groupSum)*100).toString() + "%";
     for(var i = 0;i < this.eventObj.eventJson.layouts.length;i++) {
       tmp = document.getElementById(this.eventObj.eventJson.layouts[i].groupName);
       tmp.style.width = "100%";
@@ -90,6 +102,16 @@ var layoutClass = {
       tmp.style.height = "100%";
       tmp.style.width = ((this.eventObj.eventJson.layouts[i].widthWeight/groupSum)*100).toString() + "%";
     }
+    for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
+      tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
+      if(tmp != null) {
+        for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
+          if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
+            tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
+          }
+        }
+      }
+    }
     this.updateFunct();
   },
   updateFunct: function() {
@@ -100,20 +122,9 @@ var layoutClass = {
     var tmp = document.getElementById("time");
     if(tmp != null) {
       tmp.innerText = "Time: " + (150 - this.eventObj.timeDelta).toFixed(2);
-      for(var i = 0;i < this.eventObj.eventJson.variables.length;i++) {
-        tmp = document.getElementById(this.eventObj.eventJson.variables[i].variableName);
-        tmp.innerText = this.eventObj.eventJson.variables[i].variableTitle + ": " + this.eventObj.eventJson.variables[i].variableAmount;
-      }
-      //input
-      for(var i = 0;i < this.eventObj.eventJson.events.length;i++) {
-        tmp = document.getElementById(this.eventObj.eventJson.events[i].eventName);
-        if(tmp != null) {
-          for(var j = 0;j < this.eventObj.eventJson.layouts.length;j++) {
-            if(this.eventObj.eventJson.layouts[j].eventName ==  this.eventObj.eventJson.events[i].eventName) {
-              tmp.innerText = this.eventObj.eventJson.layouts[j].buttonName;
-            }
-          }
-        }
+      for(var i = 0;i < this.eventObj.eventVars.length;i++) {
+        tmp = document.getElementById(this.eventObj.eventVars[i].variableName);
+        tmp.innerText = this.eventObj.eventVars[i].variableTitle + ": " + this.eventObj.eventVars[i].variableAmount;
       }
     }
     //Logging

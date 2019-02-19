@@ -3,6 +3,7 @@ var eventsClass = {
   eventVars:[],
   initEventVars:[],
   eventLog:[],
+  varLog: [],
   timeStart:0,
   timeDelta:0,
   isGoing: false,
@@ -14,6 +15,7 @@ var eventsClass = {
   },
   startTimeFunct: function() {
     this.initEventVars = this.eventVars;
+    this.varLog = [this.arrCopyFunct(this.eventVars)];
     this.eventLog = [];
     this.timeStart = Date.now();
     this.isGoing = true;
@@ -27,6 +29,19 @@ var eventsClass = {
     this.timeStart = Date.now();
     this.isGoing = false;
     this.eventLog = [];
+    this.varLog = [];
+  },
+  undoFunct: function() {
+    if(this.varLog.length > 0) {
+      this.varLog.pop();
+      if(this.varLog.length > 0) {
+        this.eventVars = this.arrCopyFunct(this.varLog[this.varLog.length - 1]);
+      }
+      else {
+        this.eventVars = this.initEventVars;
+      }
+      this.eventLog.pop();
+    }
   },
   triggerEventFunct: function(eventName) {
     var count = 0;
@@ -55,8 +70,10 @@ var eventsClass = {
       }
     }
     if(shouldLog && this.isGoing) {
+      this.varLog.push(this.arrCopyFunct(this.eventVars));
       this.eventLog.push({time: this.timeDelta, eventKey: key, eventTitle: title});
     }
+    console.log(this.varLog);
   },
   assignEventListeners: function() {
     var tmp = document.getElementById("variables");
@@ -74,5 +91,12 @@ var eventsClass = {
         this.triggerEventFunct(e.srcElement.id);
       };
     }
+  },
+  arrCopyFunct: function(arr) {
+    var res = [];
+    for(var i = 0;i < arr.length;i++) {
+      res.push(Object.assign({}, arr[i]));
+    }
+    return res;
   }
 }
