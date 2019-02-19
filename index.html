@@ -13,6 +13,21 @@
   </head>
   <body>
     <div id="display"></div>
+    <div class="modal fade" id="commentSection" tabindex="-1" role="dialog" aria-labelledby="commentSectionLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="commentSectionLabel">Comments</h3>
+          </div>
+          <div class="modal-body">
+            <textarea placeholder="(optional)" id="commentTextArea"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" id="commentButton">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="config\publicTexts.js"></script>
     <script src="config\eventConfig.js"></script>
     <script src="js-adler32\adler32.js"></script>

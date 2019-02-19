@@ -5,6 +5,7 @@ var dataProtocolClass = {
   eventVars: [],
   eventLog: [],
   metadata: {},
+  comments: "",
   processedString: "",
   isShowing: false,
   singleQR: false,
@@ -51,10 +52,11 @@ var dataProtocolClass = {
     }
     this.processFunct();
   },
-  inputFunct: function(inMetadata, inEventVars, inEventLog) {
+  inputFunct: function(inMetadata, inEventVars, inEventLog, inComment) {
     this.metadata = inMetadata;
     this.eventVars = inEventVars;
     this.eventLog = inEventLog;
+    this.comments = inComment;
   },
   processFunct: function() {
     this.processedString = "";
@@ -68,6 +70,7 @@ var dataProtocolClass = {
     for(var i = 0;i < this.eventLog.length;i++) {
       this.processedString += this.eventLog[i].eventKey + "," + this.eventLog[i].time + ";";
     }
+    this.processedString += this.comments;
     if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
       this.processedString = window.localStorage.savedString;
     }

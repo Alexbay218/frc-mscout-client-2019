@@ -41,6 +41,7 @@ var eventsClass = {
         this.eventVars = this.initEventVars;
       }
       this.eventLog.pop();
+      this.onLogFunct();
     }
   },
   triggerEventFunct: function(eventName) {
@@ -72,13 +73,18 @@ var eventsClass = {
     if(shouldLog && this.isGoing) {
       this.varLog.push(this.arrCopyFunct(this.eventVars));
       this.eventLog.push({time: this.timeDelta, eventKey: key, eventTitle: title});
+      this.onLogFunct();
     }
+  },
+  onLogFunct: function() {
   },
   assignEventListeners: function() {
     var tmp = document.getElementById("variables");
     tmp.onmouseup = (e) => {
       if(this.isGoing) {
-        this.resetTimeFunct();
+        if(this.timeDelta <= 10) {
+          this.resetTimeFunct();
+        }
       }
       else {
         this.startTimeFunct();

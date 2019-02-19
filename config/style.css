@@ -49,3 +49,7 @@ div {
   background-color: #007bff;
   border-color: #065ebd;
 }
+#commentTextArea {
+  height: 15em;
+  width: 20em;
+}

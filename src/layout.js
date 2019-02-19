@@ -3,8 +3,18 @@ var layoutClass = {
   eventObj:{},
   initLayoutObj: {},
   dataProtocolObj: {},
+  endTriggered: false,
   initFunct: function(events) {
     this.eventObj = events;
+    this.eventObj.onLogFunct = () => {
+      var tmp = document.getElementById("log");
+      if(tmp != null) {
+        tmp.innerText = "";
+        for(var i = this.eventObj.eventLog.length - 1;i >= 0;i--) {
+          tmp.innerText += this.eventObj.eventLog[i].time.toFixed(2) + ": " + this.eventObj.eventLog[i].eventTitle + "\n";
+        }
+      }
+    }
 
     this.dispElement = document.getElementById("display");
     this.dispElement.style.width = window.innerWidth;
@@ -30,6 +40,7 @@ var layoutClass = {
     this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
+    this.endTriggered = false;
     this.dataProtocolObj.isShowing = false;
     this.eventObj.resetTimeFunct();
     this.initLayoutObj.initFunct();
@@ -127,20 +138,16 @@ var layoutClass = {
         tmp.innerText = this.eventObj.eventVars[i].variableTitle + ": " + this.eventObj.eventVars[i].variableAmount;
       }
     }
-    //Logging
-    var tmp = document.getElementById("log");
-    if(tmp != null) {
-      tmp.innerText = "";
-      for(var i = this.eventObj.eventLog.length - 1;i >= 0;i--) {
-        tmp.innerText += this.eventObj.eventLog[i].time.toFixed(2) + ": " + this.eventObj.eventLog[i].eventTitle + "\n";
-      }
-    }
     //Pass data to qrcode
-    if(this.eventObj.timeDelta >= 160) {
-      this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice());
-      this.dataProtocolObj.initFunct();
-      this.dataProtocolObj.displayFunct();
-      this.eventObj.resetTimeFunct();
+    if(this.eventObj.timeDelta >= 160 && !this.endTriggered) {
+      this.endTriggered = true;
+      document.getElementById("commentButton").onmousedown = () => {
+        this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice(), document.getElementById("commentTextArea").value);
+        this.dataProtocolObj.initFunct();
+        this.dataProtocolObj.displayFunct();
+        this.eventObj.resetTimeFunct();
+      }
+      $("#commentSection").modal({focus: true});
     }
     window.setTimeout(() => {
       this.updateFunct();
