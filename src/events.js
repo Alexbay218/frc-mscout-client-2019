@@ -73,7 +73,6 @@ var eventsClass = {
       this.varLog.push(this.arrCopyFunct(this.eventVars));
       this.eventLog.push({time: this.timeDelta, eventKey: key, eventTitle: title});
     }
-    console.log(this.varLog);
   },
   assignEventListeners: function() {
     var tmp = document.getElementById("variables");
