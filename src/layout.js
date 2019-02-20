@@ -4,6 +4,8 @@ var layoutClass = {
   initLayoutObj: {},
   dataProtocolObj: {},
   endTriggered: false,
+  requestFinished: false,
+  gestures: {},
   initFunct: function(events) {
     this.eventObj = events;
     this.eventObj.onLogFunct = () => {
@@ -37,10 +39,36 @@ var layoutClass = {
       this.resetFunct();
     }
 
+    var tmp = document.getElementById("quitSectionLabel");
+    tmp.innerText = chosenTranslationObj.Form[14];
+    tmp = document.getElementById("quitButtonStop");
+    tmp.innerText = chosenTranslationObj.Form[15];
+    tmp.onmousedown = () => {
+      if(this.eventObj.isGoing) {
+        this.eventObj.resetTimeFunct();
+      }
+    }
+    tmp = document.getElementById("quitButtonFinish");
+    tmp.innerText = chosenTranslationObj.Form[16];
+    tmp.onmousedown = () => {
+      if(this.eventObj.isGoing) {
+        this.requestFinished = true;
+      }
+    }
+    tmp = document.getElementById("quitButtonContinue");
+    tmp.innerText = chosenTranslationObj.Form[17];
+    this.gestures = new TinyGesture(this.dispElement, {velocityThreshold: 20});
+    this.gestures.on("swipeleft", () => {
+      if(this.eventObj.isGoing) {
+        $("#quitSection").modal({focus: true});
+      }
+    });
+
     this.initLayoutObj.initFunct();
   },
   resetFunct: function() {
     this.endTriggered = false;
+    this.requestFinished = false;
     this.dataProtocolObj.isShowing = false;
     this.eventObj.resetTimeFunct();
     this.initLayoutObj.initFunct();
@@ -75,7 +103,7 @@ var layoutClass = {
       }
     }
     //Logging
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"bottom\"><div class=\"input btn\" id=\"log\"></div><div class=\"input btn btn-primary\" id=\"undo\">" + "Undo" + "</div></div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"group\" id=\"bottom\"><div class=\"input btn\" id=\"log\"></div><div class=\"input btn btn-primary\" id=\"undo\">" + chosenTranslationObj.Form[13] + "</div></div>");
     var tmp = document.getElementById("bottom");
     tmp.style.height = ((this.eventObj.eventJson.logHeightWeight/groupSum)*100).toString() + "%";
     var tmp = document.getElementById("log");
@@ -91,7 +119,6 @@ var layoutClass = {
     tmp.style.width = "20%";
     tmp.style.height = "100%";
     tmp.onmouseup = () => {this.eventObj.undoFunct();}
-    var tmp =
     //Input
     tmp = document.getElementById("variables");
     tmp.style.width = "100%";
@@ -139,7 +166,7 @@ var layoutClass = {
       }
     }
     //Pass data to qrcode
-    if(this.eventObj.timeDelta >= 160 && !this.endTriggered) {
+    if((this.requestFinished || this.eventObj.timeDelta >= 160) && !this.endTriggered) {
       this.endTriggered = true;
       document.getElementById("commentButton").onmousedown = () => {
         this.dataProtocolObj.inputFunct(Object.assign({}, this.initLayoutObj.metadataObj), this.eventObj.initEventVars.slice(), this.eventObj.eventLog.slice(), document.getElementById("commentTextArea").value);
@@ -147,6 +174,7 @@ var layoutClass = {
         this.dataProtocolObj.displayFunct();
         this.eventObj.resetTimeFunct();
       }
+      $("#quitSection").modal("hide");
       $("#commentSection").modal({focus: true});
     }
     window.setTimeout(() => {

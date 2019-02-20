@@ -75,8 +75,14 @@ var dataProtocolClass = {
       this.processedString = window.localStorage.savedString;
     }
     window.localStorage.setItem("savedString", this.processedString);
-    this.copyFunct(this.processedString);
-    this.qrcsObj.inputData(this.processedString);
+    window.setTimeout(() => {
+      this.copyFunct(this.processedString);
+      if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+        $('#recordAlert').modal({backdrop: false});
+        window.setTimeout(() => {$('#recordAlert').modal("hide")}, 1500);
+      }
+      this.qrcsObj.inputData(this.processedString);
+    }, 250);
   },
   displayFunct: function() {
     if(this.isShowing && !this.singleQR) {
@@ -91,14 +97,18 @@ var dataProtocolClass = {
   },
   backFunct: function() {},
   copyFunct: function(str) {
-    var el = document.createElement('textarea');
-    el.value = str;
-    el.setAttribute('readonly', '');
-    el.style.position = 'absolute';
-    el.style.left = '-9999px';
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    document.body.removeChild(el);
+    for(var i = 0;i < 10;i++) {
+      var el = document.createElement('textarea');
+      el.value = str;
+      el.setAttribute('readonly', '');
+      el.style.position = 'absolute';
+      el.style.left = '-9999px';
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+    $('#copiedAlert').modal({backdrop: false});
+    window.setTimeout(() => {$('#copiedAlert').modal("hide")}, 1500);
   }
 }

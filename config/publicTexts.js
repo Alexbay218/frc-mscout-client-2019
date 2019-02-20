@@ -13,7 +13,12 @@ var translationObj = {
       "Match Number",
       "Start",
       "Back",
-      "Single QR"
+      "Single QR",
+      "Undo",
+      "Do you want to stop?",
+      "Stop Recording",
+      "Finish Recording",
+      "Continue Recording"
     ],
     EventTitles: [
       "Crossed Hab Line Lvl 1",
@@ -74,7 +79,12 @@ var translationObj = {
       "Numero de Match",
       "Iniciar",
       "Regresar",
-      "Single QR"
+      "Single QR",
+      "Undo",
+      "Do you want to stop?",
+      "Stop Recording",
+      "Finish Recording",
+      "Continue Recording"
     ],
     EventTitles: [
       "Cruzado Linea HAB Niv 1",

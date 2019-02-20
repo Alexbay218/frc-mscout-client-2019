@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/bootstrap.min.css">
     <script src="jquery/jquery-3.3.1.min.js"></script>
     <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="tinygesture/TinyGesture.js"></script>
     <link rel="stylesheet" type="text/css" href="config\style.css">
     <link rel="stylesheet" type="text/css" href="config\buttonStyle.css">
     <link rel="stylesheet" type="text/css" href="config\initStyle.css">
@@ -25,6 +26,36 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal" id="commentButton">Continue</button>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="quitSection" tabindex="-1" role="dialog" aria-labelledby="quitSectionLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="quitSectionLabel">Do you want to stop?</h3>
+          </div>
+          <div class="modal-body">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-danger" data-dismiss="modal" id="quitButtonStop">Stop Recording</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal" id="quitButtonFinish">Finish Recording</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" id="quitButtonContinue">Continue Recording</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="recordAlert" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="alert alert-warning" role="alert" style="width:100%;margin-bottom:0px;">No events were recorded. Previous scouted match is shown instead.</div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="copiedAlert" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="alert alert-primary" role="alert" style="width:100%;margin-bottom:0px;">Match data copied to clipboard.</div>
         </div>
       </div>
     </div>

@@ -52,3 +52,10 @@
   background: #99d2ff;
   cursor: pointer;
 }
+
+#copiedAlert {
+  top: 90%;
+}
+#copiedAlert:not(.show) {
+  top: 100vh;
+}
