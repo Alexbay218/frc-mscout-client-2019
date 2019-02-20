@@ -8,3 +8,9 @@ window.addEventListener("resize", () => {
   dispElement.style.width = window.innerWidth;
   dispElement.style.height = window.innerHeight;
 });
+
+window.addEventListener("beforeunload", function (event) {
+  event.preventDefault();
+  event.returnValue = '';
+  return "";
+});
