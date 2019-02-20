@@ -4,6 +4,3 @@
 [submodule "js-adler32"]
 	path = js-adler32
 	url = https://github.com/SheetJS/js-adler32
-[submodule "tinygesture"]
-	path = tinygesture
-	url = https://github.com/sciactive/tinygesture

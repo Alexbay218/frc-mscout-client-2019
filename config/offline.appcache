@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# Date Updated: 2/20/19 16:52
+# Date Updated: 2/20/19 17:19
 /frc-mscout-client-2019/index.html
 
 /frc-mscout-client-2019/assets/first.ico
@@ -17,7 +17,7 @@ CACHE MANIFEST
 
 /frc-mscout-client-2019/jquery/jquery-3.3.1.min.js
 
-/frc-mscout-client-2019/tinygesture/TinyGesture.js
+/frc-mscout-client-2019/tiny-gesture/TinyGesture.js
 
 /frc-mscout-client-2019/bootstrap/bootstrap.min.css
 /frc-mscout-client-2019/bootstrap/bootstrap.min.js
