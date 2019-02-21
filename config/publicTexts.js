@@ -72,7 +72,7 @@ var translationObj = {
       "Prueba",
       "Practica de Campo",
       "Match de Practica",
-      "Match Calificatorio,
+      "Match Calificatorio",
       "Cuartos de Final",
       "Semi-finales",
       "Final",
@@ -127,7 +127,7 @@ var translationObj = {
       "Niv 2",
       "Niv 3",
       "Fallido",
-      "Cruzo Arena,
+      "Cruzo Arena",
       "Jugo Defense"
     ]
   }
