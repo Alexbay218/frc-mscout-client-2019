@@ -1,8 +1,16 @@
 .form {
   font-size: 8vw;
   margin: 0px;
-  height: 16.66%;
+  height: 16%;
   width: 100%;
+}
+.ver {
+  font-size: 4vw;
+  margin: 1px;
+  height: 4%;
+  width: 100%;
+  background-color: #007bff;
+  color: #ffffff;
 }
 #sourceTeamNumber {
   display: inline;
