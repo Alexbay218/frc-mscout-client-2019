@@ -21,7 +21,7 @@ var dataProtocolClass = {
     var lowest = tmp.offsetWidth < tmp.offsetHeight ? tmp.offsetWidth : tmp.offsetHeight;
     tmp.insertAdjacentHTML("beforeend", "<div id=\"qrspacer\"></div>");
     var tmp = document.getElementById("qrspacer");
-    tmp.style.height = (lowest*0.1) + "px";
+    tmp.style.height = (lowest*0.05) + "px";
     this.qrObj = new QRCode("qrdisplay", {
       width: lowest*0.9,
       height: lowest*0.9,
