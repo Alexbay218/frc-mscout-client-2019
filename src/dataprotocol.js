@@ -70,7 +70,7 @@ var dataProtocolClass = {
     for(var i = 0;i < this.eventLog.length;i++) {
       this.processedString += this.eventLog[i].eventKey + "," + this.eventLog[i].time + ";";
     }
-    this.processedString += "\"" + this.comments "\"";
+    this.processedString += "\"" + this.comments + "\"";
     if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
       this.processedString = window.localStorage.savedString;
     }
