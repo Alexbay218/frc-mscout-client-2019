@@ -11,7 +11,7 @@ var initLayoutClass = {
     };
     this.dispElement = document.getElementById("display");
     this.dispElement.innerHTML = "";
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"ver\">Updated 2/22/19 17:06 - Version 1.0</div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"ver\" onclick=\"window.location.reload(true)\">Updated 2/22/19 17:12 - Version 1.0.1</div>");
     this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form form-control\" type=\"number\" id=\"sourceTeamNumber\" placeholder=\"" + chosenTranslationObj.Form[0] + "\">");
     this.dispElement.insertAdjacentHTML("beforeend",
       "<select class=\"form form-control\" id=\"langSelect\">" +
