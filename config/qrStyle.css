@@ -6,8 +6,12 @@
   justify-content: center;
 }
 #qrdisplay > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   margin: auto;
   vertical-align: middle;
+  border: 3vh solid #FFFFFF;
 }
 #qrslider {
   font-size: 3.6vh;
