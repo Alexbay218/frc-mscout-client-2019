@@ -71,13 +71,13 @@ var dataProtocolClass = {
       this.processedString += this.eventLog[i].eventKey + "," + this.eventLog[i].time + ";";
     }
     this.processedString += "\"" + this.comments + "\"";
-    if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+    if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "") && this.comments == "") {
       this.processedString = window.localStorage.savedString;
     }
     window.localStorage.setItem("savedString", this.processedString);
     window.setTimeout(() => {
       this.copyFunct(this.processedString);
-      if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "")) {
+      if(this.eventLog.length <= 0 && (window.localStorage.savedString != null && window.localStorage.savedString != "") && this.comments == "") {
         $('#recordAlert').modal({backdrop: false});
         window.setTimeout(() => {$('#recordAlert').modal("hide")}, 1500);
       }
