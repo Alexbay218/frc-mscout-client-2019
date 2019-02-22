@@ -3,9 +3,11 @@
   margin: 0px;
   height: 70%;
   width: 100%;
+  justify-content: center;
 }
 #qrdisplay > img {
   margin: auto;
+  vertical-align: middle;
 }
 #qrslider {
   font-size: 3.6vh;
