@@ -20,12 +20,14 @@ var dataProtocolClass = {
     var tmp = document.getElementById("qrdisplay");
     var lowest = tmp.offsetWidth < tmp.offsetHeight ? tmp.offsetWidth : tmp.offsetHeight;
     tmp.insertAdjacentHTML("beforeend", "<div id=\"qrspacer\"></div>");
+    tmp.insertAdjacentHTML("beforeend", "<canvas id=\"qrcanvas\"></canvas>");
     var tmp = document.getElementById("qrspacer");
-    tmp.style.height = (lowest*0.05) + "px";
-    this.qrObj = new QRCode("qrdisplay", {
-      width: lowest*0.9,
-      height: lowest*0.9,
-      correctLevel: QRCode.CorrectLevel.L
+    tmp.style.height = "0px";
+    this.qrObj = new QRious({
+      element: document.getElementById("qrcanvas"),
+      padding: lowest*0.1,
+      size: lowest,
+      level: "L"
     });
     this.qrcsObj = Object.assign({}, qrcodestreamerClass);
     this.qrcsObj.initFunct(this.qrObj, ADLER32);
@@ -46,8 +48,8 @@ var dataProtocolClass = {
       }
       else {
         this.singleQR = true;
-        this.qrObj._htOption.colorDark = "#000000"
-        this.qrObj.makeCode(this.processedString);
+        this.qrObj.foreground = "#000000"
+        this.qrObj.value = this.processedString;
       }
     }
     this.processFunct();

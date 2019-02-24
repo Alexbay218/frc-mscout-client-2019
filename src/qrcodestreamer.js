@@ -9,7 +9,7 @@ var qrcodestreamerClass = {
   dispFullHash: "",
   qrcodeObj: {},
   adler32Obj: {},
-  initFunct: function(qrc,ad32) {
+  initFunct: function(qrc, ad32) {
     this.qrcodeObj = qrc;
     this.adler32Obj = ad32;
   },
@@ -73,16 +73,16 @@ var qrcodestreamerClass = {
   nextCode: function() {
     if(this.iterator >= this.codeArr.length*2) {
       this.iterator = -1;
-      this.qrcodeObj._htOption.colorDark = "#004000"
-      this.qrcodeObj.makeCode(this.dispFullHash);
+      this.qrcodeObj.foreground = "#004000"
+      this.qrcodeObj.value = this.dispFullHash;
     }
     else if(this.iterator % 2 == 0) {
-      this.qrcodeObj._htOption.colorDark = "#400000"
-      this.qrcodeObj.makeCode(this.codeArr[Math.floor(this.iterator/2)]);
+      this.qrcodeObj.foreground = "#400000"
+      this.qrcodeObj.value = this.codeArr[Math.floor(this.iterator/2)];
     }
     else {
-      this.qrcodeObj._htOption.colorDark = "#000040"
-      this.qrcodeObj.makeCode(this.dataArr[Math.floor(this.iterator/2)]);
+      this.qrcodeObj.foreground = "#000040"
+      this.qrcodeObj.value = this.dataArr[Math.floor(this.iterator/2)];
     }
     this.iterator++;
   },
