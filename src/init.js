@@ -1,6 +1,7 @@
 var initLayoutClass = {
   metadataObj: {},
   dispElement: {},
+  updateString: "Updated 2/28/19 20:05 - Version 1.2.0",
   initFunct: function() {
     this.metadataObj = {
       targetTeamNumber: 0,
@@ -11,7 +12,7 @@ var initLayoutClass = {
     };
     this.dispElement = document.getElementById("display");
     this.dispElement.innerHTML = "";
-    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"ver\" onclick=\"window.location.reload(true)\">Updated 2/24/19 16:37 - Version 1.1.0</div>");
+    this.dispElement.insertAdjacentHTML("beforeend", "<div class=\"ver\" onclick=\"window.location.reload(true)\">" + this.updateString + "</div>");
     this.dispElement.insertAdjacentHTML("beforeend", "<input class=\"form form-control\" type=\"number\" id=\"sourceTeamNumber\" placeholder=\"" + chosenTranslationObj.Form[0] + "\">");
     this.dispElement.insertAdjacentHTML("beforeend",
       "<select class=\"form form-control\" id=\"langSelect\">" +

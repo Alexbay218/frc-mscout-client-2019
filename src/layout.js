@@ -175,6 +175,7 @@ var layoutClass = {
         this.eventObj.resetTimeFunct();
       }
       $("#quitSection").modal("hide");
+      document.getElementById("commentTextArea").value = "";
       $("#commentSection").modal({focus: true});
     }
     window.setTimeout(() => {
