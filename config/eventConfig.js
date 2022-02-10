@@ -62,19 +62,19 @@ var eventConfig =
       variableLink:[]
     },
     {
-      eventName:"hangarClimb3",
+      eventName:"hangarClimbFail",
       eventTitle:chosenTranslationObj.EventTitles[10],
       eventKey:"k",
       variableLink:[]
     },
     {
-      eventName:"hangarClimb4",
+      eventName:"hangarClimb3",
       eventTitle:chosenTranslationObj.EventTitles[11],
       eventKey:"l",
       variableLink:[]
     },
     {
-      eventName:"hangarClimbFail",
+      eventName:"hangarClimb4",
       eventTitle:chosenTranslationObj.EventTitles[12],
       eventKey:"m",
       variableLink:[]
