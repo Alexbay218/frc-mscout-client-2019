@@ -1,31 +1,31 @@
 CACHE MANIFEST
-# Date Updated: 2/28/19 20:05
-/frc-mscout-client-2019/index.html
+# Date Updated: 2/28/22 20:05
+/frc-mscout-client-2022/index.html
 
-/frc-mscout-client-2019/assets/first.ico
+/frc-mscout-client-2022/assets/first.ico
 
-/frc-mscout-client-2019/config/style.css
-/frc-mscout-client-2019/config/buttonStyle.css
-/frc-mscout-client-2019/config/initStyle.css
-/frc-mscout-client-2019/config/qrStyle.css
-/frc-mscout-client-2019/config/publicTexts.js
-/frc-mscout-client-2019/config/eventConfig.js
+/frc-mscout-client-2022/config/style.css
+/frc-mscout-client-2022/config/buttonStyle.css
+/frc-mscout-client-2022/config/initStyle.css
+/frc-mscout-client-2022/config/qrStyle.css
+/frc-mscout-client-2022/config/publicTexts.js
+/frc-mscout-client-2022/config/eventConfig.js
 
-/frc-mscout-client-2019/js-adler32/adler32.js
+/frc-mscout-client-2022/js-adler32/adler32.js
 
-/frc-mscout-client-2019/qrious/dist/qrious.js
+/frc-mscout-client-2022/qrious/dist/qrious.js
 
-/frc-mscout-client-2019/popper/popper.min.js
-/frc-mscout-client-2019/jquery/jquery-3.3.1.min.js
+/frc-mscout-client-2022/popper/popper.min.js
+/frc-mscout-client-2022/jquery/jquery-3.3.1.min.js
 
-/frc-mscout-client-2019/tiny-gesture/TinyGesture.js
+/frc-mscout-client-2022/tiny-gesture/TinyGesture.js
 
-/frc-mscout-client-2019/bootstrap/bootstrap.min.css
-/frc-mscout-client-2019/bootstrap/bootstrap.min.js
+/frc-mscout-client-2022/bootstrap/bootstrap.min.css
+/frc-mscout-client-2022/bootstrap/bootstrap.min.js
 
-/frc-mscout-client-2019/src/qrcodestreamer.js
-/frc-mscout-client-2019/src/init.js
-/frc-mscout-client-2019/src/dataprotocol.js
-/frc-mscout-client-2019/src/events.js
-/frc-mscout-client-2019/src/layout.js
-/frc-mscout-client-2019/src/main.js
+/frc-mscout-client-2022/src/qrcodestreamer.js
+/frc-mscout-client-2022/src/init.js
+/frc-mscout-client-2022/src/dataprotocol.js
+/frc-mscout-client-2022/src/events.js
+/frc-mscout-client-2022/src/layout.js
+/frc-mscout-client-2022/src/main.js
