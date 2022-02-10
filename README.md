@@ -1,4 +1,10 @@
-# frc-mscout-client-2019
+# frc-mscout-client-2022
+
+## Disclaimer
+
+This is just an update from the 2019 program for Rapid React but not an update or with any support for the program.  No plans to maintain for teams, but wanted to see what would work.  I don't yet know if the core program or analytics will be useful or not.  You are welcome to use the client github.io page but at own risk.  Preferred method is to fork and generate own github.io site for a stable app.
+
+##  Prior analytics or data collection programs that may work with this
 
 Laptop System Repository: https://github.com/Alexbay218/frc-mscout-core/
 
