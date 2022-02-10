@@ -2,13 +2,13 @@ var eventConfig =
 {
   events: [
     {
-      eventName:"habLine1",
+      eventName:"taxi",
       eventTitle:chosenTranslationObj.EventTitles[0],
       eventKey:"a",
       variableLink:[]
     },
     {
-      eventName:"habLine2",
+      eventName:"hpShotSuccess",
       eventTitle:chosenTranslationObj.EventTitles[1],
       eventKey:"b",
       variableLink:[]
@@ -17,7 +17,7 @@ var eventConfig =
       eventName:"cargoUp",
       eventTitle:chosenTranslationObj.EventTitles[2],
       eventKey:"c",
-      variableLink:[{"var":"cargoCount","amt":1},{"var":"hatchCount","amt":-1}]
+      variableLink:[{"var":"cargoCount","amt":1}]
     },
     {
       eventName:"cargoDrop",
@@ -26,114 +26,78 @@ var eventConfig =
       variableLink:[{"var":"cargoCount","amt":-1}]
     },
     {
-      eventName:"hatchUp",
+      eventName:"lowHubSuccess",
       eventTitle:chosenTranslationObj.EventTitles[4],
       eventKey:"e",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":1}]
+      variableLink:[{"var":"cargoCount","amt":-1}]
     },
     {
-      eventName:"hatchDrop",
+      eventName:"lowHubFail",
       eventTitle:chosenTranslationObj.EventTitles[5],
       eventKey:"f",
-      variableLink:[{"var":"hatchCount","amt":-1}]
+      variableLink:[{"var":"cargoCount","amt":-1}]
     },
     {
-      eventName:"shipSuccess",
+      eventName:"upperHubSuccess",
       eventTitle:chosenTranslationObj.EventTitles[6],
       eventKey:"g",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[{"var":"cargoCount","amt":-1}]
     },
     {
-      eventName:"shipFail",
+      eventName:"upperHubFail",
       eventTitle:chosenTranslationObj.EventTitles[7],
       eventKey:"h",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[{"var":"cargoCount","amt":-1}]
     },
     {
-      eventName:"rocket1Success",
+      eventName:"hangarClimb1",
       eventTitle:chosenTranslationObj.EventTitles[8],
       eventKey:"i",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[]
     },
     {
-      eventName:"rocket1Fail",
+      eventName:"hangarClimb2",
       eventTitle:chosenTranslationObj.EventTitles[9],
       eventKey:"j",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[]
     },
     {
-      eventName:"rocket2Success",
+      eventName:"hangarClimb3",
       eventTitle:chosenTranslationObj.EventTitles[10],
       eventKey:"k",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[]
     },
     {
-      eventName:"rocket2Fail",
+      eventName:"hangarClimb4",
       eventTitle:chosenTranslationObj.EventTitles[11],
       eventKey:"l",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
+      variableLink:[]
     },
     {
-      eventName:"rocket3Success",
+      eventName:"hangarClimbFail",
       eventTitle:chosenTranslationObj.EventTitles[12],
       eventKey:"m",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
-    },
-    {
-      eventName:"rocket3Fail",
-      eventTitle:chosenTranslationObj.EventTitles[13],
-      eventKey:"n",
-      variableLink:[{"var":"cargoCount","amt":-1},{"var":"hatchCount","amt":-1}]
-    },
-    {
-      eventName:"habClimb1",
-      eventTitle:chosenTranslationObj.EventTitles[14],
-      eventKey:"o",
-      variableLink:[]
-    },
-    {
-      eventName:"habClimb2",
-      eventTitle:chosenTranslationObj.EventTitles[15],
-      eventKey:"p",
-      variableLink:[]
-    },
-    {
-      eventName:"habClimb3",
-      eventTitle:chosenTranslationObj.EventTitles[16],
-      eventKey:"q",
-      variableLink:[]
-    },
-    {
-      eventName:"habClimbFail",
-      eventTitle:chosenTranslationObj.EventTitles[17],
-      eventKey:"r",
       variableLink:[]
     },
     {
       eventName:"defend",
-      eventTitle:chosenTranslationObj.EventTitles[18],
-      eventKey:"s",
+      eventTitle:chosenTranslationObj.EventTitles[13],
+      eventKey:"o",
       variableLink:[]
     },
-    {
-      eventName:"crossField",
-      eventTitle:chosenTranslationObj.EventTitles[19],
-      eventKey:"t",
-      variableLink:[]
-    }
   ],
   layouts: [
     {
-      eventName:"habLine1",
+      eventName:"taxi",
       buttonName:chosenTranslationObj.ButtonName[0],
-      groupName:"habline",
+      groupName:"auto",
       heightWeight:1,
       widthWeight:0.7
     },
     {
-      eventName:"habLine2",
+      eventName:"hpShotSuccess",
       buttonName:chosenTranslationObj.ButtonName[1],
-      groupName:"habline",
+      groupName:"auto",
       heightWeight:1,
       widthWeight:0.3
     },
@@ -152,113 +116,71 @@ var eventConfig =
       widthWeight:0.45
     },
     {
-      eventName:"hatchUp",
+      eventName:"lowHubSuccess",
       buttonName:chosenTranslationObj.ButtonName[4],
-      groupName:"hatch",
+      groupName:"lowhub",
       heightWeight:1,
-      widthWeight:0.55
+      widthWeight:0.7
     },
     {
-      eventName:"hatchDrop",
+      eventName:"lowHubFail",
       buttonName:chosenTranslationObj.ButtonName[5],
-      groupName:"hatch",
+      groupName:"lowhub",
       heightWeight:1,
-      widthWeight:0.45
+      widthWeight:0.3
     },
     {
-      eventName:"shipSuccess",
+      eventName:"upperHubSuccess",
       buttonName:chosenTranslationObj.ButtonName[6],
-      groupName:"ship",
+      groupName:"upperhub",
       heightWeight:1,
       widthWeight:0.7
     },
     {
-      eventName:"shipFail",
+      eventName:"upperHubFail",
       buttonName:chosenTranslationObj.ButtonName[7],
-      groupName:"ship",
+      groupName:"upperhub",
       heightWeight:1,
       widthWeight:0.3
     },
     {
-      eventName:"rocket1Success",
+      eventName:"hangarClimb1",
       buttonName:chosenTranslationObj.ButtonName[8],
-      groupName:"rocket1",
-      heightWeight:1,
-      widthWeight:0.7
-    },
-    {
-      eventName:"rocket1Fail",
-      buttonName:chosenTranslationObj.ButtonName[9],
-      groupName:"rocket1",
-      heightWeight:1,
-      widthWeight:0.3
-    },
-    {
-      eventName:"rocket2Success",
-      buttonName:chosenTranslationObj.ButtonName[10],
-      groupName:"rocket2",
-      heightWeight:1,
-      widthWeight:0.7
-    },
-    {
-      eventName:"rocket2Fail",
-      buttonName:chosenTranslationObj.ButtonName[11],
-      groupName:"rocket2",
-      heightWeight:1,
-      widthWeight:0.3
-    },
-    {
-      eventName:"rocket3Success",
-      buttonName:chosenTranslationObj.ButtonName[12],
-      groupName:"rocket3",
-      heightWeight:1,
-      widthWeight:0.7
-    },
-    {
-      eventName:"rocket3Fail",
-      buttonName:chosenTranslationObj.ButtonName[13],
-      groupName:"rocket3",
-      heightWeight:1,
-      widthWeight:0.3
-    },
-    {
-      eventName:"habClimb1",
-      buttonName:chosenTranslationObj.ButtonName[14],
-      groupName:"habclimb",
+      groupName:"hangarclimb",
       heightWeight:1,
       widthWeight:0.4
     },
     {
-      eventName:"habClimb2",
-      buttonName:chosenTranslationObj.ButtonName[15],
-      groupName:"habclimb",
+      eventName:"hangarClimb2",
+      buttonName:chosenTranslationObj.ButtonName[9],
+      groupName:"hangarclimb",
       heightWeight:1,
       widthWeight:0.166
     },
     {
-      eventName:"habClimb3",
-      buttonName:chosenTranslationObj.ButtonName[16],
-      groupName:"habclimb",
-      heightWeight:1,
-      widthWeight:0.166
-    },
-    {
-      eventName:"habClimbFail",
-      buttonName:chosenTranslationObj.ButtonName[17],
-      groupName:"habclimb",
+      eventName:"hangarClimbFail",
+      buttonName:chosenTranslationObj.ButtonName[10],
+      groupName:"hangarclimb",
       heightWeight:1,
       widthWeight:0.267
     },
     {
-      eventName:"crossField",
-      buttonName:chosenTranslationObj.ButtonName[18],
-      groupName:"defense",
+      eventName:"hangarClimb3",
+      buttonName:chosenTranslationObj.ButtonName[11],
+      groupName:"hangartraversal",
       heightWeight:1,
-      widthWeight:0.5
+      widthWeight:0.166
+    },
+    {
+      eventName:"hangarClimb4",
+      buttonName:chosenTranslationObj.ButtonName[12],
+      groupName:"hangartraversal",
+      heightWeight:1,
+      widthWeight:0.166
     },
     {
       eventName:"defend",
-      buttonName:chosenTranslationObj.ButtonName[19],
+      buttonName:chosenTranslationObj.ButtonName[13],
       groupName:"defense",
       heightWeight:1,
       widthWeight:0.5
@@ -269,13 +191,7 @@ var eventConfig =
     {
       variableName:"cargoCount",
       variableTitle:"Cargo",
-      variableLimit:[0,1],
-      variableAmount:0
-    },
-    {
-      variableName:"hatchCount",
-      variableTitle:"Hatch",
-      variableLimit:[0,1],
+      variableLimit:[0,2],
       variableAmount:0
     }
   ],
