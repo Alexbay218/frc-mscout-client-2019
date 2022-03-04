@@ -1,3 +1,7 @@
+# DEPRECIATED
+
+I've been working on Koronis Scouting System instead of this project since 2019. The problem with this project is that it's not very extendable for each game. KSS is a lot better in a lot of ways. Check it out here: https://web.koronis.cc
+
 # frc-mscout-client-2019
 
 Laptop System Repository: https://github.com/Alexbay218/frc-mscout-core/
